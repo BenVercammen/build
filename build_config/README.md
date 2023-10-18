@@ -231,6 +231,15 @@ these options should be used rarely.
   should always be the input to another specific builder, use both `runs_before`
   and `applies_builder` to configure both ordering and ensure that steps are not
   skipped.
+  - If you want to make sure your own builder runs after another builder which 
+    is defined within one of your dependencies, you can set the order by using
+    `global_options`, eg:
+    ```yaml
+    global_options:
+      json_serializable|json_serializable:
+        runs_before:
+          - my_custom_package|my_custom_builder
+    ```
 
 # Publishing `build.yaml` files
 
